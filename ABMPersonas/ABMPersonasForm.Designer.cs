@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listView1 = new ListView();
+            personasLista = new ListView();
             dniColumna = new ColumnHeader();
             nombreColumna = new ColumnHeader();
             apellidoColumna = new ColumnHeader();
-            groupBox1 = new GroupBox();
+            edicionGrupo = new GroupBox();
             button4 = new Button();
             button5 = new Button();
             comboBox1 = new ComboBox();
@@ -49,21 +49,25 @@
             label2 = new Label();
             textBox1 = new TextBox();
             label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            groupBox1.SuspendLayout();
+            nuevaBoton = new Button();
+            borrarBoton = new Button();
+            modificarBoton = new Button();
+            label8 = new Label();
+            textBox6 = new TextBox();
+            button6 = new Button();
+            listaGrupo = new GroupBox();
+            edicionGrupo.SuspendLayout();
             SuspendLayout();
             // 
-            // listView1
+            // personasLista
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { dniColumna, nombreColumna, apellidoColumna });
-            listView1.Location = new Point(12, 12);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(776, 201);
-            listView1.TabIndex = 0;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            personasLista.Columns.AddRange(new ColumnHeader[] { dniColumna, nombreColumna, apellidoColumna });
+            personasLista.Location = new Point(12, 69);
+            personasLista.Name = "personasLista";
+            personasLista.Size = new Size(776, 235);
+            personasLista.TabIndex = 0;
+            personasLista.UseCompatibleStateImageBehavior = false;
+            personasLista.View = View.Details;
             // 
             // dniColumna
             // 
@@ -77,33 +81,34 @@
             // 
             apellidoColumna.Text = "Apellido";
             // 
-            // groupBox1
+            // edicionGrupo
             // 
-            groupBox1.Controls.Add(button4);
-            groupBox1.Controls.Add(button5);
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(textBox7);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(12, 254);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(776, 314);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
+            edicionGrupo.Controls.Add(button4);
+            edicionGrupo.Controls.Add(button5);
+            edicionGrupo.Controls.Add(comboBox1);
+            edicionGrupo.Controls.Add(textBox7);
+            edicionGrupo.Controls.Add(label7);
+            edicionGrupo.Controls.Add(textBox4);
+            edicionGrupo.Controls.Add(textBox5);
+            edicionGrupo.Controls.Add(label4);
+            edicionGrupo.Controls.Add(label5);
+            edicionGrupo.Controls.Add(label6);
+            edicionGrupo.Controls.Add(textBox3);
+            edicionGrupo.Controls.Add(textBox2);
+            edicionGrupo.Controls.Add(label3);
+            edicionGrupo.Controls.Add(label2);
+            edicionGrupo.Controls.Add(textBox1);
+            edicionGrupo.Controls.Add(label1);
+            edicionGrupo.Enabled = false;
+            edicionGrupo.Location = new Point(12, 341);
+            edicionGrupo.Name = "edicionGrupo";
+            edicionGrupo.Size = new Size(776, 258);
+            edicionGrupo.TabIndex = 1;
+            edicionGrupo.TabStop = false;
             // 
             // button4
             // 
-            button4.Location = new Point(582, 279);
+            button4.Location = new Point(582, 211);
             button4.Name = "button4";
             button4.Size = new Size(94, 29);
             button4.TabIndex = 5;
@@ -112,7 +117,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(682, 279);
+            button5.Location = new Point(682, 211);
             button5.Name = "button5";
             button5.Size = new Size(94, 29);
             button5.TabIndex = 6;
@@ -134,7 +139,6 @@
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(82, 27);
             textBox7.TabIndex = 14;
-            textBox7.TextChanged += textBox7_TextChanged;
             // 
             // label7
             // 
@@ -234,61 +238,101 @@
             label1.TabIndex = 0;
             label1.Text = "Documento";
             // 
-            // button1
+            // nuevaBoton
             // 
-            button1.Location = new Point(694, 219);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "&Nueva";
-            button1.UseVisualStyleBackColor = true;
+            nuevaBoton.Location = new Point(694, 310);
+            nuevaBoton.Name = "nuevaBoton";
+            nuevaBoton.Size = new Size(94, 29);
+            nuevaBoton.TabIndex = 2;
+            nuevaBoton.Text = "&Nueva";
+            nuevaBoton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // borrarBoton
             // 
-            button2.Location = new Point(521, 219);
-            button2.Name = "button2";
-            button2.Size = new Size(167, 29);
-            button2.TabIndex = 3;
-            button2.Text = "&Borrar seleccionada";
-            button2.UseVisualStyleBackColor = true;
+            borrarBoton.Location = new Point(521, 310);
+            borrarBoton.Name = "borrarBoton";
+            borrarBoton.Size = new Size(167, 29);
+            borrarBoton.TabIndex = 3;
+            borrarBoton.Text = "&Borrar seleccionada";
+            borrarBoton.UseVisualStyleBackColor = true;
+            borrarBoton.Click += borrarBoton_Click;
             // 
-            // button3
+            // modificarBoton
             // 
-            button3.Location = new Point(329, 219);
-            button3.Name = "button3";
-            button3.Size = new Size(186, 29);
-            button3.TabIndex = 4;
-            button3.Text = "&Modificar seleccionada\r\n";
-            button3.UseVisualStyleBackColor = true;
+            modificarBoton.Location = new Point(329, 310);
+            modificarBoton.Name = "modificarBoton";
+            modificarBoton.Size = new Size(186, 29);
+            modificarBoton.TabIndex = 4;
+            modificarBoton.Text = "&Modificar seleccionada\r\n";
+            modificarBoton.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(12, 9);
+            label8.Name = "label8";
+            label8.Size = new Size(271, 20);
+            label8.TabIndex = 5;
+            label8.Text = "Busqueda por Apellido / Nombre / DNI";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(12, 32);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(302, 27);
+            textBox6.TabIndex = 16;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(688, 30);
+            button6.Name = "button6";
+            button6.Size = new Size(94, 29);
+            button6.TabIndex = 17;
+            button6.Text = "&Buscar";
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // listaGrupo
+            // 
+            listaGrupo.Location = new Point(3, 9);
+            listaGrupo.Name = "listaGrupo";
+            listaGrupo.Size = new Size(794, 341);
+            listaGrupo.TabIndex = 18;
+            listaGrupo.TabStop = false;
+            listaGrupo.Text = "groupBox2";
             // 
             // ABMPersonasForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 611);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(groupBox1);
-            Controls.Add(listView1);
+            Controls.Add(button6);
+            Controls.Add(textBox6);
+            Controls.Add(label8);
+            Controls.Add(modificarBoton);
+            Controls.Add(borrarBoton);
+            Controls.Add(nuevaBoton);
+            Controls.Add(edicionGrupo);
+            Controls.Add(personasLista);
+            Controls.Add(listaGrupo);
             Name = "ABMPersonasForm";
-            Text = "Form1";
+            Text = "Alta de personas";
             Load += ABMPersonasForm_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            edicionGrupo.ResumeLayout(false);
+            edicionGrupo.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private ListView listView1;
+        private ListView personasLista;
         private ColumnHeader dniColumna;
         private ColumnHeader nombreColumna;
         private ColumnHeader apellidoColumna;
-        private GroupBox groupBox1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private GroupBox edicionGrupo;
+        private Button nuevaBoton;
+        private Button borrarBoton;
+        private Button modificarBoton;
         private TextBox textBox1;
         private Label label1;
         private Label label3;
@@ -305,5 +349,9 @@
         private Button button4;
         private Button button5;
         private ComboBox comboBox1;
+        private Label label8;
+        private TextBox textBox6;
+        private Button button6;
+        private GroupBox listaGrupo;
     }
 }
